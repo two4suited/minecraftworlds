@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: bds
+  name: flatcreative
 spec:
   accessModes:
     - ReadWriteOnce
@@ -13,19 +13,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bds
+  name: flatcreative
   labels:
-    app: bds
+    app: flatcreative
 spec:
   replicas: 1
   template:
     metadata:
-      name: bds
+      name: flatcreative
       labels:
-        app: bds
+        app: flatcreative
     spec:
       containers:
-        - name: bds
+        - name: flatcreative
           image: itzg/minecraft-bedrock-server
           imagePullPolicy: Always
           env:
@@ -51,10 +51,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bds
+  name: flatcreative
 spec:
   selector:
-    app: bds
+    app: flatcreative
   ports:
     - port: 19132
       protocol: UDP
